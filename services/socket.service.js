@@ -44,7 +44,6 @@ function connectSockets(http, session) {
         socket.on('in-board', boardId => {
             if (socket.boardId === boardId) return;
             if (socket.boardId) {
-                console.log('leaving', socket.boardId);
                 socket.leave(socket.boardId)
             }
             socket.join(boardId)
@@ -58,7 +57,6 @@ function connectSockets(http, session) {
             // logger.debug('Session ID is', socket.handshake.sessionID)
         })
         socket.on('board-updated', board => {
-            console.log('emitting from server', board);
             socket.to(socket.boardId).emit('board-updated', board)
         })
 
