@@ -1,0 +1,114 @@
+[
+    {
+      "name": "Talking Doll",
+      "price": "12.99",
+      "type": "Adult",
+      "createdAt": "1625704585227",
+      "inStock": "true"
+    },
+    {
+      "name": "dolor dui",
+      "price": "52",
+      "type": "Educational",
+      "createdAt": "1625704585227",
+      "inStock": "true"
+    },
+    {
+      "name": "elementum hendrerit",
+      "price": "4.5",
+      "type": "Adult",
+      "createdAt": "1625704585227",
+      "inStock": "false"
+    },
+    {
+      "name": "porttitor at",
+      "price": "2",
+      "type": "Educational",
+      "createdAt": "1625714585227",
+      "inStock": "false"
+    },
+    {
+      "name": "turpis eros",
+      "price": 6.99,
+      "type": "Adult",
+      "createdAt": "1625724585227",
+      "inStock": "false"
+    },
+    {
+      "name": "sed porta",
+      "price": 2,
+      "type": "Educational",
+      "createdAt": "1625734585227",
+      "inStock": "false"
+    },
+    {
+      "name": "sit tortor",
+      "price": "6",
+      "type": "Educational",
+      "createdAt": "1625744585227",
+      "inStock": "true"
+    },
+    {
+      "name": "porttitor consectetur",
+      "price": "5",
+      "type": "Adult",
+      "createdAt": "1625754585227",
+      "inStock": "true"
+    },
+    {
+      "name": "ac sagittis",
+      "price": "4",
+      "type": "Funny",
+      "createdAt": "1625764585227",
+      "inStock": "true"
+    },
+    {
+      "name": "ipsum quis",
+      "price": "6",
+      "type": "Adult",
+      "createdAt": "1625774585227",
+      "inStock": "true"
+    },
+    {
+      "name": "magna neque",
+      "price": "35",
+      "type": "Funny",
+      "createdAt": "1625784585227",
+      "inStock": "true"
+    },
+    {
+      "name": "massa lectus",
+      "price": "5.8",
+      "type": "Educational",
+      "createdAt": "1625794585227",
+      "inStock": "true"
+    },
+    {
+      "name": "massa fringilla",
+      "price": "28",
+      "type": "Adult",
+      "createdAt": "1625705585227",
+      "inStock": "true"
+    },
+    {
+      "name": "molestie tortor",
+      "price": "3.99",
+      "type": "Funny",
+      "createdAt": "1625715585227",
+      "inStock": "true"
+    },
+    {
+      "name": "vel nec",
+      "price": "7",
+      "type": "Funny",
+      "createdAt": "1625725585227",
+      "inStock": "true"
+    },
+    {
+      "name": "magna sed",
+      "price": "8.49",
+      "type": "Educational",
+      "createdAt": "1625735585227",
+      "inStock": "true"
+    }
+  ]

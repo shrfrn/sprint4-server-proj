@@ -1,0 +1,139 @@
+/* 1 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f58"),
+    "name" : "Talking Doll",
+    "price" : "12.99",
+    "type" : "Adult",
+    "createdAt" : "1625704585227",
+    "inStock" : "true"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f5b"),
+    "name" : "porttitor at",
+    "price" : "2",
+    "type" : "Educational",
+    "createdAt" : "1625714585227",
+    "inStock" : "false"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f5c"),
+    "name" : "turpis eros",
+    "price" : 6.99,
+    "type" : "Adult",
+    "createdAt" : "1625724585227",
+    "inStock" : "false"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f5d"),
+    "name" : "sed porta",
+    "price" : 2.0,
+    "type" : "Educational",
+    "createdAt" : "1625734585227",
+    "inStock" : "false"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f5e"),
+    "name" : "sit tortor",
+    "price" : "6",
+    "type" : "Educational",
+    "createdAt" : "1625744585227",
+    "inStock" : "true"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f5f"),
+    "name" : "porttitor consectetur",
+    "price" : "5",
+    "type" : "Adult",
+    "createdAt" : "1625754585227",
+    "inStock" : "true"
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f60"),
+    "name" : "ac sagittis",
+    "price" : "4",
+    "type" : "Funny",
+    "createdAt" : "1625764585227",
+    "inStock" : "true"
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f61"),
+    "name" : "ipsum quis",
+    "price" : "6",
+    "type" : "Adult",
+    "createdAt" : "1625774585227",
+    "inStock" : "true"
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f62"),
+    "name" : "magna neque",
+    "price" : "35",
+    "type" : "Funny",
+    "createdAt" : "1625784585227",
+    "inStock" : "true"
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f63"),
+    "name" : "massa lectus",
+    "price" : "5.8",
+    "type" : "Educational",
+    "createdAt" : "1625794585227",
+    "inStock" : "true"
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f64"),
+    "name" : "massa fringilla",
+    "price" : "28",
+    "type" : "Adult",
+    "createdAt" : "1625705585227",
+    "inStock" : "true"
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f65"),
+    "name" : "molestie tortor",
+    "price" : "3.99",
+    "type" : "Funny",
+    "createdAt" : "1625715585227",
+    "inStock" : "true"
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f66"),
+    "name" : "vel nec",
+    "price" : "7",
+    "type" : "Funny",
+    "createdAt" : "1625725585227",
+    "inStock" : "true"
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("60e6eaf838bfa48c6fa12f67"),
+    "name" : "magna sed",
+    "price" : "8.49",
+    "type" : "Educational",
+    "createdAt" : "1625735585227",
+    "inStock" : "true"
+}

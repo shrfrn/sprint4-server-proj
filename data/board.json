@@ -1,0 +1,19 @@
+{
+    "title": "My first board",
+    "description": "This is very awesome!",
+    "isFavorite": false,
+    "createdAt": 0,
+    "createdBy": {},
+    "columns": ["status", "date", "delegates", "tags"],
+    "groups": [],
+    "members": [],
+    "statuses": [
+        { "id": "s001", "txt": "Done", "color": "#33d391" },
+        { "id": "s002", "txt": "In progress", "color": "#fdbc64" },
+        { "id": "s003", "txt": "Stuck", "color": "#e8697d" },
+        { "id": "s000", "txt": "", "color": "#c4c4c4" }
+    ],
+    "tags": ["front-end", "back-end", "UI", "DB"],
+    "styles": {},
+    "activities": []
+}
