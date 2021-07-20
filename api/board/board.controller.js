@@ -41,10 +41,9 @@ async function updateBoard(req, res) {
     // if(req.session.user.isAdmin === 'false') res.status(403).send({ err: 'not admin' })
     try {
         const board = req.body
-        console.log('--req.body--\n', req.body);
         const savedBoard = await boardService.update(board)
         res.send(savedBoard)
-        // socketService.broadcast({type: 'toy-updated', data: review, to:savedToy._id})
+        // socketService.broadcast({ type: 'board-updated', data: board, room: board._id })
     } catch (err) {
         logger.error('Failed to update board', err)
         res.status(500).send({ err: 'Failed to update board' })
