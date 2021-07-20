@@ -11,12 +11,14 @@ function connectSockets(http, session) {
 
     const sharedSession = require('express-socket.io-session');
 
-    gIo.use(sharedSession(session, { autoSave: true }))
-
+    gIo.use(sharedSession(session, {
+        autoSave: true
+    }));
     gIo.on('connection', socket => {
         console.log('New socket - socket.handshake.sessionID', socket.handshake.sessionID)
         gSocketBySessionIdMap[socket.handshake.sessionID] = socket
-        console.log();
+        // TODO: emitToUser feature - need to tested for CaJan21
+        // if (socket.handshake?.session?.user) socket.join(socket.handshake.session.user._id)
         socket.on('disconnect', socket => {
             console.log('Someone disconnected')
             if (socket.handshake) {
@@ -41,25 +43,23 @@ function connectSockets(http, session) {
         socket.on('user-watch', userId => {
             socket.join(userId)
         })
-        socket.on('in-board', boardId => {
-            if (socket.boardId === boardId) return;
-            if (socket.boardId) {
-                console.log('leaving', socket.boardId);
-                socket.leave(socket.boardId)
+        socket.on('in-toy', toyId => {
+            if (socket.toyId === toyId) return;
+            if (socket.toyId) {
+                console.log('leaving', socket.toyId);
+                socket.leave(socket.toyId)
             }
-            socket.join(boardId)
-            console.log('joind board:', boardId);
+            socket.join(toyId)
             // logger.debug('Session ID is', socket.handshake.sessionID)
-            socket.boardId = boardId
+            socket.toyId = toyId
         })
-        socket.on('left-board', boardId => {
-            socket.leave(socket.boardId)
-            delete socket.boardId
+        socket.on('left-toy', toyId => {
+            socket.leave(socket.toyId)
+            delete socket.toyId
             // logger.debug('Session ID is', socket.handshake.sessionID)
         })
-        socket.on('board-updated', board => {
-            console.log('emitting from server', board);
-            socket.to(socket.boardId).emit('board-updated', board)
+        socket.on('chat-outgoing', msg => {
+            socket.to(socket.toyId).emit('chat-incoming', msg)
         })
 
     })

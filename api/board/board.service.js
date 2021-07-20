@@ -1,17 +1,14 @@
 
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const reviewService = require('../review/review.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
     getById,
-    // getByBoardname,
     remove,
     update,
     add,
-    // addReview,
 }
 
 async function query(filterBy = {}) {
@@ -43,29 +40,12 @@ async function getById(boardId) {
     try {
         const collection = await dbService.getCollection('boards')
         const board = await collection.findOne({ '_id': ObjectId(boardId) })
-
-        // board.givenReviews = await reviewService.query({ byBoardId: ObjectId(board._id) })
-        // board.givenReviews = board.givenReviews.map(review => {
-        //     delete review.byBoard
-        //     return review
-        // })
-
         return board
     } catch (err) {
         logger.error(`while finding board ${boardId}`, err)
         throw err
     }
 }
-// async function getByBoardname(boardname) {
-//     try {
-//         const collection = await dbService.getCollection('boards')
-//         const board = await collection.findOne({ boardname })
-//         return board
-//     } catch (err) {
-//         logger.error(`while finding board ${boardname}`, err)
-//         throw err
-//     }
-// }
 
 async function remove(boardId) {
     
@@ -82,13 +62,9 @@ async function remove(boardId) {
 
 async function update(board) {
     try {
-        // peek only updatable fields!
-        // const boardToSave = JSON.parse(JSON.stringify(board))
-        // console.log('boardToSave', board); // use ObjectId() ?
-        console.log('after DB\n', board.groups[0].tasks);
-        const collection = await dbService.getCollection('boards')
         board._id = ObjectId(board._id)
-        const res = await collection.updateOne({ '_id': board._id }, { $set: board })
+        const collection = await dbService.getCollection('boards')
+        await collection.updateOne({ '_id': board._id }, { $set: board })
         return board;
     } catch (err) {
         logger.error(`cannot update board ${board._id}`, err)
@@ -111,19 +87,6 @@ async function add(board) {
     }
 }
 
-// async function addReview(boardId, review) {
-//     try {
-//         const collection = await dbService.getCollection('boards')
-//         review.id = _makeId()
-//         review.createdAt = Date.now()
-//         await collection.updateOne({ '_id': ObjectId(boardId) }, { $push: {reviews: review} })
-//         return review
-//     } catch (err) {
-//         logger.error('cannot insert board', err)
-//         throw err
-//     }
-// }
-
 // Private functions 
 
 function _buildCriteria(filterBy) {
@@ -142,13 +105,3 @@ function _buildCriteria(filterBy) {
     }
     return criteria
 }
-
-// function _makeId(length = 5) {
-//     var txt = '';
-//     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//     for(let i=0; i < length; i++) {
-//         txt += possible.charAt(Math.floor(Math.random() * possible.length));
-//     }
-//     return txt;
-// }
-
