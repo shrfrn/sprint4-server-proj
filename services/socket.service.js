@@ -47,7 +47,6 @@ function connectSockets(http, session) {
                 socket.leave(socket.boardId)
             }
             socket.join(boardId)
-            console.log('joind board:', boardId);
             // logger.debug('Session ID is', socket.handshake.sessionID)
             socket.boardId = boardId
         })
