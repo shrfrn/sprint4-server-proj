@@ -28,10 +28,10 @@ if (process.env.NODE_ENV === 'production') {
 
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
-// const reviewRoutes = require('./api/review/review.routes')
 const boardRoutes = require('./api/board/board.routes')
+const activityRoutes = require('./api/activity/activity.routes')
 
-const {connectSockets} = require('./services/socket.service')
+const { connectSockets } = require('./services/socket.service')
 
 // routes
 const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
@@ -46,9 +46,9 @@ app.get('/api/setup-session', (req, res) =>{
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
-// app.use('/api/review', reviewRoutes)
-
 app.use('/api/board', boardRoutes)
+app.use('/api/activity', activityRoutes)
+
 
 connectSockets(http, session)
 
@@ -60,12 +60,10 @@ app.get('/**', (req, res) => {
 })
 
 const logger = require('./services/logger.service')
+
 const port = process.env.PORT || 3030
 http.listen(port, () => {
     logger.info('Server is running on port: ' + port)
 })
 
-console.log('I am Here!, am I?')
-
-
-
+console.log('What do machines dream of when they are idle...?')

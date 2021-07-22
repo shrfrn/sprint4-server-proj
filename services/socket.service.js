@@ -23,23 +23,13 @@ function connectSockets(http, session) {
                 gSocketBySessionIdMap[socket.handshake.sessionID] = null
             }
         })
-        socket.on('chat topic', topic => {
-            if (socket.myTopic === topic) return;
-            if (socket.myTopic) {
-                socket.leave(socket.myTopic)
-            }
-            socket.join(topic)
-            // logger.debug('Session ID is', socket.handshake.sessionID)
-            socket.myTopic = topic
-        })
-        socket.on('chat newMsg', msg => {
+        socket.on('task-updated', activity => {
             // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
+            console.log('beafore');
+            socket.broadcast.emit('task-updated', activity)
+            // gIo.emit('task-updated', activity)
             // emits only to sockets in the same room
-            gIo.to(socket.myTopic).emit('chat addMsg', msg)
-        })
-        socket.on('user-watch', userId => {
-            socket.join(userId)
+            // gIo.to(socket.myTopic).emit('chat addMsg', msg)
         })
         socket.on('in-board', boardId => {
             if (socket.boardId === boardId) return;
@@ -47,16 +37,17 @@ function connectSockets(http, session) {
                 socket.leave(socket.boardId)
             }
             socket.join(boardId)
-            // logger.debug('Session ID is', socket.handshake.sessionID)
             socket.boardId = boardId
         })
         socket.on('left-board', boardId => {
             socket.leave(socket.boardId)
             delete socket.boardId
-            // logger.debug('Session ID is', socket.handshake.sessionID)
         })
         socket.on('board-updated', board => {
             socket.to(socket.boardId).emit('board-updated', board)
+        })
+        socket.on('board-list-updated', board => {
+            socket.broadcast.emit(socket.boardId).emit('board-list-updated', board)
         })
 
     })

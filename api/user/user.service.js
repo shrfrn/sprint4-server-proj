@@ -1,6 +1,6 @@
 
 const dbService = require('../../services/db.service')
-// const logger = require('../../services/logger.service')
+const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
@@ -9,7 +9,9 @@ module.exports = {
     getByUsername,
     remove,
     update,
-    add
+    add,
+    addActivity,
+    removeActivities,
 }
 
 async function query(filterBy = {}) {
@@ -64,12 +66,12 @@ async function remove(userId) {
 
 async function update(user) {
     try {
-        // peek only updatable fields!
+        // pick only updatable fields!
         const userToSave = {
             _id: ObjectId(user._id),
             username: user.username,
             fullname: user.fullname,
-            score: user.score
+            imgUrl: user.imgUrl
         }
         const collection = await dbService.getCollection('users')
         await collection.updateOne({ '_id': userToSave._id }, { $set: userToSave })
@@ -95,6 +97,37 @@ async function add(user) {
     }
 }
 
+
+async function addActivity(users, activity){
+
+    try {
+        const userColection = await dbService.getCollection('users')
+        await userColection.updateMany({ '_id': { $in: users } }, { $push: {activities: activity} })
+        return activity
+    } catch (err) {
+        logger.error('cannot add activity to user', err)
+        throw err
+    }
+}
+async function removeActivities(userId, activity){
+
+    let criteria = {}
+
+    if(activity.id) criteria.id = activity.id
+    if(activity.taskId) criteria.taskId = activity.taskId
+    if(activity.groupId) criteria.groupId = activity.groupId
+    if(activity.boardId) criteria.boardId = activity.boardId
+    if(activity.type) criteria.type = activity.type
+
+    try {
+        await dbService.getCollection('users')                     // destructuring
+        await users.update({ '_id': ObjectId(userId) }, { $pull: { activities: criteria }}) //updateOne() ?
+    } catch (err) {
+        logger.error('cannot add activity to user', err)
+        throw err
+    }
+}
+
 function _buildCriteria(filterBy = {}) {
     const criteria = {}
     if (filterBy.txt) {
@@ -113,5 +146,3 @@ function _buildCriteria(filterBy = {}) {
     }
     return criteria
 }
-
-

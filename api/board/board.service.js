@@ -9,6 +9,7 @@ module.exports = {
     remove,
     update,
     add,
+    addActivity,
 }
 
 async function query(filterBy = {}) {
@@ -83,6 +84,21 @@ async function add(board) {
         return board
     } catch (err) {
         logger.error('cannot insert board', err)
+        throw err
+    }
+}
+
+async function addActivity(activity){
+
+    const boardId = activity.boardId
+    delete activity.boardId
+
+    try {
+        const boards = await dbService.getCollection('boards')
+        await boards.updateOne({ '_id': ObjectId(boardId) }, { $push: {activities: activity} })
+        return activity
+    } catch (err) {
+        logger.error('cannot add activity to board', err)
         throw err
     }
 }
