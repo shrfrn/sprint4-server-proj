@@ -46,8 +46,8 @@ function connectSockets(http, session) {
         socket.on('board-updated', board => {
             socket.to(socket.boardId).emit('board-updated', board)
         })
-        socket.on('board-list-updated', board => {
-            socket.broadcast.emit(socket.boardId).emit('board-list-updated', board)
+        socket.on('board-list-updated', () => {
+            socket.broadcast.emit('board-list-updated')
         })
 
     })
