@@ -42,9 +42,9 @@ async function updateBoard(req, res) {
     // if(!req.session.user) res.status(401).send({ err: 'Please login' })
     // if(req.session.user.isAdmin === 'false') res.status(403).send({ err: 'not admin' })
     try {
-        const board = req.body
-        const savedBoard = await boardService.update(board)
-        res.send(savedBoard)
+        const board = req.body;
+        const savedBoard = await boardService.update(board);
+        res.send(savedBoard);
         // socketService.broadcast({ type: 'board-updated', data: board, room: board._id })
     } catch (err) {
         logger.error('Failed to update board', err);
