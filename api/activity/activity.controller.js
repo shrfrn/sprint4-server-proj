@@ -7,12 +7,12 @@ const { ObjectId } = require('mongodb')
 async function addActivity(req, res) {
 
     const activity = req.body
-    
+
     activity.id = _makeId(10)
     activity.createdAt = Date.now()
     
     const { user } = req.session
-    if(user) activity.byUserId = user._id
+    if(user) activity.createdBy = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
 
     try {
         // Create array with userId's of board members
