@@ -91,7 +91,7 @@ async function add(board) {
 async function addActivity(activity){
 
     const boardId = activity.boardId
-    delete activity.boardId
+    // delete activity.boardId
 
     try {
         const boards = await dbService.getCollection('boards')
