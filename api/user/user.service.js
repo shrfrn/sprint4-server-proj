@@ -113,14 +113,15 @@ async function removeActivities(userId, activity){
 
     let criteria = {}
 
-    if(activity.id) criteria.id = activity.id
-    if(activity.taskId) criteria.taskId = activity.taskId
-    if(activity.groupId) criteria.groupId = activity.groupId
-    if(activity.boardId) criteria.boardId = activity.boardId
-    if(activity.type) criteria.type = activity.type
+    criteria.taskId = activity.taskId
+    // if(activity.id) criteria.id = activity.id        // destructuring ?
+    // if(activity.taskId) criteria.taskId = activity.taskId
+    // if(activity.groupId) criteria.groupId = activity.groupId
+    // if(activity.boardId) criteria.boardId = activity.boardId
+    // if(activity.type) criteria.type = activity.type
 
     try {
-        await dbService.getCollection('users')                     // destructuring
+        await dbService.getCollection('users')                     
         await users.update({ '_id': ObjectId(userId) }, { $pull: { activities: criteria }}) //updateOne() ?
     } catch (err) {
         logger.error('cannot add activity to user', err)

@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "88c2b7e6-9ef3-4cef-b3d3-a82471cb37ec",
+		"name": "Someday",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User authentication",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bobbyb\",\n    \"password\": \"bobbyb\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bobbyb\",\n    \"password\": \"bobbyb\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Board CRUD",
+			"item": [
+				{
+					"name": "Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/api/board",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Board",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/api/toy/60f57a5e8ee2f1ab23e50183",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"toy",
+								"60f57a5e8ee2f1ab23e50183"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Board",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n    \"_id\": 1586,\n    \"name\": \"risus lectus\",\n    \"price\": 1,\n    \"type\": \"Adult\",\n    \"createdAt\": \"1980-01-14T11:33:01.036Z\",\n    \"inStock\": \"true\"\n    }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/mr-toy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"mr-toy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Board",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My first board updated\",\n    \"description\": \"This is very awesome!\",\n    \"isFavorite\": false,\n    \"createdAt\": 1626700382945,\n    \"createdBy\": {\n        \"_id\": \"60f562f7a22a0da5023ec2be\",\n        \"username\": \"avior\",\n        \"fullname\": \"Avior Hagibor\",\n        \"createdAt\": 1626694390338\n    },\n    \"columns\": [\n        \"status\",\n        \"date\",\n        \"delegates\",\n        \"tags\"\n    ],\n    \"groups\": [],\n    \"members\": [],\n    \"statuses\": [\n        {\n            \"id\": \"s001\",\n            \"txt\": \"Done\",\n            \"color\": \"#33d391\"\n        },\n        {\n            \"id\": \"s002\",\n            \"txt\": \"In progress\",\n            \"color\": \"#fdbc64\"\n        },\n        {\n            \"id\": \"s003\",\n            \"txt\": \"Stuck\",\n            \"color\": \"#e8697d\"\n        },\n        {\n            \"id\": \"s000\",\n            \"txt\": \"\",\n            \"color\": \"#c4c4c4\"\n        }\n    ],\n    \"tags\": [\n        \"front-end\",\n        \"back-end\",\n        \"UI\",\n        \"DB\"\n    ],\n    \"styles\": {},\n    \"activities\": [],\n    \"_id\": \"60f57a5e8ee2f1ab23e50183\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/board/60f57a5e8ee2f1ab23e50183",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"board",
+								"60f57a5e8ee2f1ab23e50183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Board",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3030/api/board/60f57c588ee2f1ab23e50185",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"board",
+								"60f57c588ee2f1ab23e50185"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "Add activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"boardId\": \"60f7b1edc66d343ab4f0c568\",\n        \"groupId\": \"m6nEE\",\n        \"taskId\": \"MbYNa\",\n        \"type\": \"msg\",\n        \"userId\": \"\",\n        \"txt\": \"Hi there...\"\n    }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3030/api/activity/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"api",
+								"activity",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
