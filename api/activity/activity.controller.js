@@ -12,6 +12,7 @@ async function addActivity(req, res) {
     activity.createdAt = Date.now()
     
     const { user } = req.session
+    console.log('user in add activity:', activity.createdBy);
     if(user) activity.createdBy = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
 
     try {
@@ -19,12 +20,15 @@ async function addActivity(req, res) {
 
         let users = []
         const board = await boardService.getById(activity.boardId)
-        users = board.members.map(member => ObjectId(member._id))
+        let userIds = board.members.map(member => ObjectId(member._id))
+
+        // don't register the activity with it's originator
+        userIds = userIds.filter(userId => userId !== user._id) 
 
         // Register the activity in the board and in the relevant users
 
         const prmBoards = boardService.addActivity(activity)
-        const prmUsers = userService.addActivity(users, activity)
+        const prmUsers = userService.addActivity(userIds, activity)
 
         await Promise.all([prmUsers, prmBoards])
         res.json(activity)
